@@ -1,0 +1,26 @@
+syntax = "proto3";
+package user;
+
+service UserService {
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc List(ListRequest) returns (ListResponse);
+}
+
+message User {
+    string id = 1;
+    string email = 2;
+}
+
+message CreateRequest {
+    User user = 1;
+}
+
+message CreateResponse {
+    string id = 1;
+}
+
+message ListRequest {}
+
+message ListResponse {
+    repeated User users = 1;
+}
